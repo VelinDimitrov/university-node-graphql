@@ -34,4 +34,4 @@ export class Address {
 
 }
 
-export const AddressModel = getModelForClass(Address);
+export const AddressModel = getModelForClass(Address, { schemaOptions: { timestamps: true } });

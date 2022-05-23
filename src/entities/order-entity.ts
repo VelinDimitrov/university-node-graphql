@@ -1,7 +1,10 @@
 import { ObjectType, Field } from "type-graphql";
-import { prop as Prop, getModelForClass } from "@typegoose/typegoose";
+import { prop as Prop, getModelForClass, modelOptions, Severity } from "@typegoose/typegoose";
 import { ObjectId } from "mongodb";
 import { Address } from "./address-entity";
+
+
+@modelOptions({ options: { allowMixed: Severity.ALLOW } })
 
 @ObjectType()
 export class Order {
@@ -31,4 +34,4 @@ export class Order {
     addresses?: Address[]
 }
 
-export const OrderModel = getModelForClass(Order);
+export const OrderModel = getModelForClass(Order, { schemaOptions: { timestamps: true } });

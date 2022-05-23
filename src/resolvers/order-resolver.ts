@@ -31,6 +31,6 @@ export class OrderResolver {
     @Mutation(returns => Order)
     async editOrder(@Arg("_id") _id: string, @Arg("data") data: EditOrderInput): Promise<Order> {
 
-        return OrderModel.findOneAndUpdate(_id, data, { new: true });
+        return OrderModel.findByIdAndUpdate(_id, data, { new: true });
     }
 }

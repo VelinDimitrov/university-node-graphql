@@ -31,6 +31,6 @@ export class AddressResolver {
     @Mutation(returns => Address)
     async editAddress(@Arg("_id") _id: string, @Arg("data") data: BaseAddressInput): Promise<Address> {
 
-        return AddressModel.findOneAndUpdate(_id, data, { new: true });
+        return AddressModel.findByIdAndUpdate(_id, data, { new: true });
     }
 }
